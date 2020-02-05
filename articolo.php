@@ -7,8 +7,15 @@
         public $codice_a_barre;
         public $peso;
         public $prezzo;
-        public $quantità;
+        public $stock;
         public $scaffale;
+
+        // public function __costruct($codice_a_barre, $stock = 1, $scaffale) {
+        //     $this->codice_a_barre = $codice_a_barre;
+        //     $this->stock = $stock;
+        //     $this->scaffale = $scaffale;
+        //
+        // }
 
         public function costiSpedizione($tariffa_km) {
             return $tariffa_km * $this->peso;
@@ -18,12 +25,14 @@
             return costiSpedizione($tariffa_km) + $this->prezzo;
         }
 
-        public function stampaOrdineMagazzino($numero_ordine, $quantità) {
+        public function stampaOrdineMagazzino($numero_ordine, $numero_pezzi) {
             echo 'Ordine Numero: ' . $numero_ordine;
             echo '<br>';
             echo 'Codice a barre: ' . $this->codice_a_barre;
             echo '<br>';
             echo 'Collocazione: ' . $this->scaffale;
+            echo '<br>';
+            echo 'Pezzi ordinati: ' . $this->$numero_pezzi;
         }
 
         public function stampaOrdineCliente($numero_ordine, $nome_cliente, $tariffa_km) {
