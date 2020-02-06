@@ -16,7 +16,7 @@
             $this->scaffale = $scaffale;
         }
 
-        public function costoTotale($tariffa_km) {
+        public function costoTotale($tariffa_kg) {
             return ($tariffa_kg * $this->peso) + 1 + $this->prezzo;
         }
 
