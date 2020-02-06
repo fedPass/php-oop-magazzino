@@ -1,27 +1,29 @@
 <?php
     include_once 'articolo.php';
-    include_once 'cliente.php';
-    include_once 'ordine.php';
-    include_once 'dipendente.php';
+    include_once 'Maglia.php';
+    include_once 'Scarpa.php';
 
 
-    $sedia = new Articolo('1234567890', '6', 'A1');
+    $maglia = new Maglia(1234567890, 6, 'A1');
+    $maglia->titolo = 'Maglia manica corta';
 
-    $tavolo = new Articolo();
-    $tavolo->categoria = 'arredamento';
-    $tavolo->titolo = 'tavolo in legno';
-    $tavolo->produttore = 'riflessi';
-    $tavolo->codice_a_barre = '12345678';
-    $tavolo->peso = '10';
-    $tavolo->prezzo = '230';
-    $tavolo->stock = '2';
-    $tavolo->scaffale = 'B2';
+    $scarpa = new Scarpa();
+    $scarpa->categoria = 'abbigliamento';
+    $scarpa->titolo = 'Sneakers';
+    $scarpa->produttore = 'adidas';
+    $scarpa->codice_a_barre = 12345678;
+    $scarpa->peso = 0.2;
+    $scarpa->prezzo = 20;
+    $scarpa->stock = 2;
+    $scarpa->scaffale = 'B2';
 
     echo '<pre>';
-    var_dump($sedia);
+    var_dump($maglia);
     echo '<br>';
-    var_dump($tavolo);
+    var_dump($scarpa);
     echo '</pre>';
 
-    echo 'Se stai a 100km pagherai : '. costiSpedizione(1) . ' € di spese di spedizione e un totale di '. costoTotale(1);
+    $costo_totale_scarpa = $scarpa->costoTotale(1);
+
+    echo 'Il totale con le spese di spedizione è: '. $costo_totale_scarpa . ' €';
 ?>

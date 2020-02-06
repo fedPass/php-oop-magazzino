@@ -10,19 +10,14 @@
         public $stock;
         public $scaffale;
 
-        // public function __costruct($codice_a_barre, $stock = 1, $scaffale) {
-        //     $this->codice_a_barre = $codice_a_barre;
-        //     $this->stock = $stock;
-        //     $this->scaffale = $scaffale;
-        //
-        // }
-
-        public function costiSpedizione($tariffa_km) {
-            return $tariffa_km * $this->peso;
+        public function __costruct($codice_a_barre, $stock, $scaffale) {
+            $this->codice_a_barre = $codice_a_barre;
+            $this->stock = $stock;
+            $this->scaffale = $scaffale;
         }
 
         public function costoTotale($tariffa_km) {
-            return costiSpedizione($tariffa_km) + $this->prezzo;
+            return ($tariffa_kg * $this->peso) + 1 + $this->prezzo;
         }
 
         public function stampaOrdineMagazzino($numero_ordine, $numero_pezzi) {
